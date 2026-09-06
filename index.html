@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Meeting Room Guide</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+body{
+  margin:0;
+  font-family:'Inter', sans-serif;
+  background:#f4f4f4;
+}
+
+.navbar{
+  background:#0f172a;
+  color:white;
+  padding:15px 30px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
+}
+
+.logo{
+  font-weight:700;
+  font-size:20px;
+}
+
+.menu{
+  display:flex;
+  align-items:center;
+  flex-wrap:wrap;
+}
+
+.menu a{
+  color:white;
+  text-decoration:none;
+  margin-left:20px;
+  font-size:15px;
+}
+
+.container{
+  max-width:1000px;
+  margin:auto;
+  padding:30px;
+}
+
+.header{
+  margin-top:30px;
+  margin-bottom:20px;
+}
+
+.header h1{
+  color:#0f172a;
+  font-size:32px;
+  margin-bottom:10px;
+}
+
+.section-desc{
+  color:#6b7280;
+  font-size:15px;
+  margin-top:0;
+  margin-bottom:25px;
+  line-height:1.6;
+}
+
+.article{
+  background:white;
+  padding:20px;
+  border-radius:14px;
+  margin-bottom:20px;
+  box-shadow:0 2px 8px rgba(0,0,0,0.08);
+  transition:0.2s;
+}
+
+.article:hover{
+  transform:translateY(-3px);
+}
+
+.article a{
+  text-decoration:none;
+  color:#111827;
+}
+
+.article h2{
+  margin:0;
+  font-size:20px;
+  line-height:1.5;
+}
+
+.lang-switch{
+  margin-left:20px;
+}
+
+.lang-switch button{
+  padding:8px 12px;
+  border:2px solid transparent;
+  border-radius:6px;
+  cursor:pointer;
+  margin-left:5px;
+  font-weight:600;
+  background:#e2e8f0;
+  color:#0f172a;
+}
+
+.lang-switch button:hover{
+  opacity:0.9;
+}
+
+.lang-switch button.active{
+  background:#38bdf8;
+  color:white;
+  border-color:#0284c7;
+}
+
+@media(max-width:768px){
+
+  .navbar{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+
+  .menu{
+    margin-top:15px;
+  }
+
+  .menu a{
+    margin-left:0;
+    margin-right:15px;
+    margin-bottom:10px;
+  }
+
+  .lang-switch{
+    margin-left:0;
+  }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+
+  <div class="logo">
+    IT Division
+  </div>
+
+  <div class="menu">
+
+    <a href="index.html" id="navHome">
+      Home
+    </a>
+
+    <a href="polycom.html" id="navPolycom">
+      Poly Studio User Guide
+    </a>
+
+    <a href="access_wifi.html" id="navWifi">
+      How to Connect to Wi-Fi
+    </a>
+
+    <span class="lang-switch">
+      <button id="btnEn" onclick="setLanguage('en')">EN</button>
+      <button id="btnId" onclick="setLanguage('id')">ID</button>
+    </span>
+
+  </div>
+
+</div>
+
+<!-- CONTENT -->
+<div class="container">
+
+  <!-- ONSITE -->
+  <div class="header">
+
+    <h1 id="onsiteTitle">
+      Meeting Onsite
+    </h1>
+
+    <p class="section-desc" id="onsiteDesc">
+      Choose this if you only want to show your screen to the people in the room (No video call).
+    </p>
+
+  </div>
+
+  <div class="article">
+    <h2>
+      <a href="panduan_windows.html" id="article2">
+        How to Display Your Laptop Screen on TV Using HDMI (Windows & Mac)?
+      </a>
+    </h2>
+  </div>
+
+  <!-- HYBRID -->
+  <div class="header">
+
+    <h1 id="hybridTitle">
+      Meeting Hybrid
+    </h1>
+
+    <p class="section-desc" id="hybridDesc">
+      Choose this if you are hosting a video conference with remote participants using the room camera and mic.
+    </p>
+
+  </div>
+
+  <div class="article">
+    <h2>
+      <a href="polycom.html" id="article3">
+        How to start a Hybrid Meeting (Zoom, Microsoft Teams, Google Meet) using Poly Studio?
+      </a>
+    </h2>
+  </div>
+
+  <!-- DISPLAY CONTROL -->
+  <div class="header">
+
+    <h1 id="displayTitle">
+      Display Control
+    </h1>
+
+    <p class="section-desc" id="displayDesc">
+      Guide for using the Display Control system to manage the display source, audio, and TV operation in the BINUS Meeting Room.
+    </p>
+
+  </div>
+
+  <div class="article">
+    <h2>
+      <a href="extron.html" id="article4">
+        Guideline Touch Panel Control
+      </a>
+    </h2>
+  </div>
+
+</div>
+
+<script>
+
+const text = {
+
+  en: {
+
+    /* NAVBAR */
+    navHome: "Home",
+    navPolycom: "Poly Studio User Guide",
+    navWifi: "How to Connect to Wi-Fi",
+
+    /* ONSITE */
+    onsiteTitle: "Meeting Onsite",
+
+    onsiteDesc:
+    "Choose this if you only want to show your screen to the people in the room (No video call).",
+
+    article2:
+    "How to Display Your Laptop Screen on TV Using HDMI (Windows & Mac)?",
+
+    /* HYBRID */
+    hybridTitle: "Meeting Hybrid",
+
+    hybridDesc:
+    "Choose this if you are hosting a video conference with remote participants using the room camera and mic.",
+
+    article3:
+    "How do I connect to a Zoom meeting using Poly Studio?",
+
+    /* DISPLAY CONTROL */
+    displayTitle: "Display Control",
+
+    displayDesc:
+    "Guide for using the Display Control system to manage the display source, audio, and TV operation in the BINUS Meeting Room.",
+
+    article4:
+    "Guideline Touch Panel Control"
+  },
+
+  id: {
+
+    /* NAVBAR */
+    navHome: "Beranda",
+    navPolycom: "Panduan Pengguna Poly Studio",
+    navWifi: "Cara Menghubungkan ke Wi-Fi",
+
+    /* ONSITE */
+    onsiteTitle: "Meeting Onsite",
+
+    onsiteDesc:
+    "Pilih opsi ini jika Anda hanya ingin menampilkan layar kepada peserta yang berada di dalam ruangan (tanpa video conference).",
+
+    article2:
+    "Bagaiman Cara Menampilkan Layar Laptop ke TV Menggunakan HDMI (Windows & Mac)?",
+
+    /* HYBRID */
+    hybridTitle: "Meeting Hybrid",
+
+    hybridDesc:
+    "Pilih opsi ini jika Anda ingin mengadakan video conference dengan peserta yang berada di lokasi lain menggunakan kamera dan mikrofon yang tersedia di ruang meeting.",
+
+    article3:
+    "Bagaimana cara bergabung ke meeting Zoom menggunakan Poly Studio?",
+
+    /* DISPLAY CONTROL */
+    displayTitle: "Panduan Display Control",
+
+    displayDesc:
+    "Panduan penggunaan sistem Display Control untuk mengatur sumber tampilan, audio, dan pengoperasian TV pada BINUS Meeting Room.",
+
+    article4:
+    "Panduan Kontrol Touch Panel"
+  }
+
+};
+
+function setLanguage(lang){
+
+  for(const key in text[lang]){
+    const el = document.getElementById(key);
+    if (el) {
+      el.innerHTML = text[lang][key];
+    }
+  }
+
+  document.getElementById('btnEn').classList.toggle('active', lang === 'en');
+  document.getElementById('btnId').classList.toggle('active', lang === 'id');
+
+  document.documentElement.lang = lang;
+
+}
+
+// Set default language on page load
+setLanguage('en');
+
+</script>
+
+</body>
+</html>
