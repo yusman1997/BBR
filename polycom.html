@@ -5,8 +5,6 @@
   <title>Guideline Poly Studio X50</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="stylesheet" href="style.css">
-
   <style>
 
     body {
@@ -61,6 +59,7 @@
       border-radius: 10px;
       margin-top: 10px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      display: block;
     }
 
     footer {
@@ -77,15 +76,23 @@
 
     .lang-switch button {
       padding: 8px 12px;
-      border: none;
+      border: 2px solid transparent;
       border-radius: 6px;
       cursor: pointer;
       margin-left: 5px;
       font-weight: bold;
+      background: #e2e8f0;
+      color: #0f172a;
     }
 
     .lang-switch button:hover {
       opacity: 0.9;
+    }
+
+    .lang-switch button.active {
+      background: #38bdf8;
+      color: white;
+      border-color: #0284c7;
     }
 
     @media(max-width:768px){
@@ -140,8 +147,8 @@
       </a>
 
       <span class="lang-switch">
-        <button onclick="setLanguage('en')">EN</button>
-        <button onclick="setLanguage('id')">ID</button>
+        <button id="btnEn" onclick="setLanguage('en')">EN</button>
+        <button id="btnId" onclick="setLanguage('id')">ID</button>
       </span>
 
     </div>
@@ -170,24 +177,11 @@
 
     <strong>Step 1:</strong><br>
 
-    <span id="step1">
-      <ul>
-        <li>
-          If a Zoom Meeting ID has not been created, users can start a meeting directly using the “New Meeting” feature available on the Poly tab.
-        </li>
-      </ul>
-    </span>
-
-    <p>
-      <img src="img/Poly1.png"
-           style="width:80%; max-width:500px;">
-    </p>
+    
 
     <span id="step2">
       <ul>
-        <li>
-          If a Meeting ID is already available, you can directly join the meeting through the Poly tab.
-        </li>
+        <li>If a Meeting ID is already available, you can directly join the meeting through the Poly tab.</li>
       </ul>
     </span>
 
@@ -212,7 +206,7 @@
       <img src="img/Poly6.png"
            style="width:80%; max-width:500px;">
     </p>
- <p>
+    <p>
       <img src="img/remote camera.png"
            style="width:80%; max-width:500px;">
     </p>
@@ -278,98 +272,104 @@
 
 <script>
 
+const text = {
+
+  en: {
+
+    /* NAVBAR */
+    navHome: "Home",
+    navPolycom: "Poly Studio User Guide",
+    navWifi: "How to Connect to Wi-Fi",
+
+    /* PAGE */
+    title: "Guideline Poly Studio",
+
+    intro:
+    "Learn how to connect your laptop or mobile device to a meeting room equipped with video conferencing tools.",
+
+    stepsTitle:
+    "Steps to connect",
+
+   
+
+    step2:
+    "<ul><li>If a Meeting ID is already available, you can directly join the meeting through the Poly tab.</li></ul>",
+
+    step3:
+    "Camera Control",
+
+    step4:
+    "Controller Zoom Room",
+
+    step5:
+    "Optional: For onsite meetings only (without Zoom participants), you can directly share your screen using the Share Content feature below. On the laptop that will be used for screen sharing, open the Zoom application, select Share Screen, then enter the sharing code displayed on the Share Content tab.",
+
+    tipsTitle:
+    "Tips",
+
+    tip2:
+    "Check network connection",
+
+    tip3:
+    "Restart device if connection fails"
+  },
+
+  id: {
+
+    /* NAVBAR */
+    navHome: "Beranda",
+    navPolycom: "Panduan Poly Studio",
+    navWifi: "Cara Menghubungkan ke Wi-Fi",
+
+    /* PAGE */
+    title: "Panduan Poly Studio",
+
+    intro:
+    "Pelajari cara menghubungkan laptop atau perangkat mobile ke ruang meeting yang dilengkapi perangkat video conference.",
+
+    stepsTitle:
+    "Langkah-langkah koneksi",
+
+    step2:
+    "<ul><li>Jika Meeting ID sudah tersedia, pengguna dapat langsung bergabung ke meeting melalui tab Poly.</li></ul>",
+
+    step3:
+    "Kontrol Kamera",
+
+    step4:
+    "Controller Zoom Room",
+
+    step5:
+    "Opsional: Khusus untuk meeting onsite tanpa peserta Zoom, Anda dapat langsung membagikan layar menggunakan fitur Share Content di bawah ini. Pada laptop yang akan digunakan untuk share screen, buka aplikasi Zoom, pilih Share Screen, lalu masukkan kode sharing yang muncul pada tab Share Content.",
+
+    tipsTitle:
+    "Tips",
+
+    tip2:
+    "Periksa koneksi jaringan",
+
+    tip3:
+    "Restart perangkat jika koneksi gagal"
+  }
+};
+
 function setLanguage(lang) {
 
-  const text = {
-
-    en: {
-
-      /* NAVBAR */
-      navHome: "Home",
-      navPolycom: "Poly Studio User Guide",
-      navWifi: "How to Connect to Wi-Fi",
-
-      /* PAGE */
-      title: "Guideline Poly Studio",
-
-      intro:
-      "Learn how to connect your laptop or mobile device to a meeting room equipped with video conferencing tools.",
-
-      stepsTitle:
-      "Steps to connect",
-
-      step1:
-      "<ul><li>If a Zoom Meeting ID has not been created, users can start a meeting directly using the “New Meeting” feature available on the Poly tab.</li></ul>",
-
-      step2:
-      "<ul><li>If a Meeting ID is already available, you can directly join the meeting through the Poly tab.</li></ul>",
-
-      step3:
-      "Camera Control",
-
-      step4:
-      "Controller Zoom Room",
-
-      step5:
-      "Optional: For onsite meetings only (without Zoom participants), you can directly share your screen using the Share Content feature below. On the laptop that will be used for screen sharing, open the Zoom application, select Share Screen, then enter the sharing code displayed on the Share Content tab.",
-
-      tipsTitle:
-      "Tips",
-
-      tip2:
-      "Check network connection",
-
-      tip3:
-      "Restart device if connection fails"
-    },
-
-    id: {
-
-      /* NAVBAR */
-      navHome: "Beranda",
-      navPolycom: "Panduan Poly Studio",
-      navWifi: "Cara Menghubungkan ke Wi-Fi",
-
-      /* PAGE */
-      title: "Panduan Poly Studio",
-
-      intro:
-      "Pelajari cara menghubungkan laptop atau perangkat mobile ke ruang meeting yang dilengkapi perangkat video conference.",
-
-      stepsTitle:
-      "Langkah-langkah koneksi",
-
-      step1:
-      "<ul><li>Jika Zoom Meeting ID belum dibuat, pengguna dapat langsung memulai meeting menggunakan fitur “New Meeting” yang tersedia pada tab Poly.</li></ul>",
-
-      step2:
-      "<ul><li>Jika Meeting ID sudah tersedia, pengguna dapat langsung bergabung ke meeting melalui tab Poly.</li></ul>",
-
-      step3:
-      "Kontrol Kamera",
-
-      step4:
-      "Controller Zoom Room",
-
-      step5:
-      "Opsional: Khusus untuk meeting onsite tanpa peserta Zoom, Anda dapat langsung membagikan layar menggunakan fitur Share Content di bawah ini. Pada laptop yang akan digunakan untuk share screen, buka aplikasi Zoom, pilih Share Screen, lalu masukkan kode sharing yang muncul pada tab Share Content.",
-
-      tipsTitle:
-      "Tips",
-
-      tip2:
-      "Periksa koneksi jaringan",
-
-      tip3:
-      "Restart perangkat jika koneksi gagal"
-    }
-  };
-
   for (const key in text[lang]) {
-    document.getElementById(key).innerHTML = text[lang][key];
+    const el = document.getElementById(key);
+    if (el) {
+      el.innerHTML = text[lang][key];
+    }
   }
 
+  document.getElementById('btnEn').classList.toggle('active', lang === 'en');
+  document.getElementById('btnId').classList.toggle('active', lang === 'id');
+
+  document.documentElement.lang = lang;
 }
+
+// Set default language on page load
+setLanguage('en');
 
 </script>
 
